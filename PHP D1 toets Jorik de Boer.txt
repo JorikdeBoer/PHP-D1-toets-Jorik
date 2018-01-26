@@ -1,0 +1,176 @@
+//PHP toest D1 Jorik de Boer
+
+//EXERCISE 1:
+//Comment the echo statement using multi-line comments. Comment the for-loop
+//using single-line comments.
+
+<?php
+/* echo "Sed ut perspiciatis unde omnis iste natus error sit
+voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque
+ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae
+dicta sunt explicabo." ; */
+
+// for ($i= 0 ; $i< 100 ; $i++) {}
+?>
+
+//EXERCISE 2:
+Declare three variables called a,b and c and assign the values 1000, 1200 and
+1400. Print a line of text to the output screen that reads: “The sum of a,b and c is” followed
+by the sum of the three numbers.
+
+<?php
+$a=1000;
+$b=1200;
+$c=1400;
+$numbers = array($a, $b, $c);
+echo "The sum of a,b and c is " .array_sum($numbers);
+?>
+
+//EXERCISE 3: Explain what’s wrong in the code below:
+De functie "addNumbers" wordt niet aangeroepen in de code en 
+de functie zelf heeft de beide nummers als parameters nodig om te functioneren en beide nummers op te tellen.
+
+//EXERCISE 4: Transform $testString to lowercase and print the string.
+<?php
+$testString = "Hello World" ;
+echo strtolower ($testString);
+?>
+
+//EXERCISE 5: Add your own code to the script below that lists the datatype of each of the
+variables defined below (name, age, male and list). Your echo statements may include no
+words except “Value is”. In other words, use the function that will output the variable type to
+get the requested text.
+
+Expected output:
+Value is string
+Value is integer
+Value is boolean
+Value is array
+
+The script:
+<?php
+$name = "George" ;
+$age = 50 ;
+$male = true ;
+$list = [ 1 , 2 , 5 , 8 , 9 ];
+
+function getdatatype($value){
+    echo "Value is " .gettype($value). "\n";
+}
+getdatatype($name);
+getdatatype($age);
+getdatatype($male);
+getdatatype($list);
+?>
+
+//EXERCISE 6: Calculate the sum, subtraction, division, multiplication and exponentiation of the
+numbers 5 and 10 using PHP arithmetic operators.
+
+<?php
+$a = 5;
+$b = 10;
+
+$sum = $a + $b;
+$substraction = $a - $b;
+$division = $a / $b;
+$multiplication = $a * $b;
+$exponentiation = $a ** $b;
+?>
+
+//EXERCISE 7: Write a PHP script that replaces the first 'the' of the following string with 'That'.
+
+String: the quick brown fox jumps over the lazy dog.
+Expected result : That quick brown fox jumps over the lazy dog.
+
+<?php
+echo str_replace("The","That","The quick brown fox jumps over the lazy dog.");
+?>
+
+//EXERCISE 8: Write a script that prints “temperature is low” if temperature is equal to or below
+50 and writes “temperature is ok” if temperature is above 50.
+
+<?php
+$temperature = 10 ;
+function qualifytemp($temperature) {
+if ($temperature <= 50) {
+	echo "temperature is low";
+} else {
+	echo "temperature is ok";
+}}
+qualifytemp($temperature);
+?>
+
+//EXERCISE 9: Create an array with the following city names: New York City, Seoul, Tokyo,
+Mexico City, Shanghai, Lagos, Cairo, Buenos Aires, London and Mumbai. Sort the array and
+print the values in the array separated by commas using a for loop. Next, add the following 
+cities to the array: Calcutta, Los Angeles, Osaka and Beijing. Next, sort the array and print
+the values in the array separated by commas using a for loop.
+
+<?php
+$cities = array("New York City", "Seoul", "Tokyo", "Mexico City", "Shanghai", "Lagos", "Cairo", "Buenos Aires", "London", "Mumbai");
+
+sort($cities);
+
+for ($i=0; $i<count($cities); $i++) 
+	{
+echo $cities[$i]; 
+
+	if ($i !=count($cities)-1) { echo ", ";}
+	else (echo ". \n";}
+	}
+
+
+array_push($cities, "Calcutta", "Los Angeles", "Osaka", "Beijing");
+sort($cities);
+for ($i=0; $i<count($cities); $i++) 
+	{
+echo $cities[$i]; 
+
+	if ($i !=count($cities)-1) { echo ", ";}
+	else (echo ". \n";}
+	}
+?>
+
+//EXERCISE 10: In this exercise use two nested for loops to create a table as shown below:
+<?php
+echo "<table border =\"1\" style='border-collapse: collapse'>";
+	for ($row=1; $row <= 5; $row++) { 
+		echo "<tr> \n";
+		for ($col=1; $col <= 5; $col++) { 
+		   	$p = $col * $row;
+		   	echo "<td>$p</td> \n";
+		}
+	  	echo "</tr>";
+	}
+echo "</table>";
+?>
+
+//Exercise 11: Write a form that accepts user input. Supply two text boxes, one for width and
+one for height. Write your own function that accepts two parameters (width and height) and
+calculates the area (product). The function should return a sentence “The calculated area of
+width (user inserted width) and height (user inserted height) is: (calculated area)”. This
+sentence should be printed on screen.
+
+exercise11.html:
+
+<html>
+<body>
+    
+<form action="exercise11.php" method="get">
+Width: <input type="text" name="width"><br>
+Height: <input type="text" name="height"><br>
+<input type="submit">
+</form>
+
+</body>
+</html> 
+
+exercise11.php:
+
+<html>
+<body>
+
+The calculated area of width <?php echo $_GET["width"]; ?> and height <?php echo $_GET["height"]; ?> is: <?php echo $_GET["height"]*$_GET["height"]; ?>
+    
+</body>
+</html> 
