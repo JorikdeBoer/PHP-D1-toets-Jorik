@@ -170,7 +170,30 @@ exercise11.php:
 <html>
 <body>
 
-The calculated area of width <?php echo $_GET["width"]; ?> and height <?php echo $_GET["height"]; ?> is: <?php echo $_GET["height"]*$_GET["height"]; ?>
+The calculated area of width 
+<?php 
+$verb = $_SERVER['REQUEST_METHOD'];
+if ($verb == 'GET'){   
+    echo $_GET["width"];
+    }
+else {
+    die("Error: the required parameters are missing.");    
+}?> 
+and height 
+<?php     
+$verb = $_SERVER['REQUEST_METHOD'];
+if ($verb == 'GET'){   
+    echo $_GET["height"];
+    }
+else {
+    die("Error: the required parameters are missing.");    
+}?>     
+is: 
+<?php     
+$verb = $_SERVER['REQUEST_METHOD'];
+if ($verb == 'GET'){       
+echo $_GET["height"] * $_GET["height"]; 
+}?>
     
 </body>
 </html> 
